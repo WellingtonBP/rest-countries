@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Search Countries</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/light-mode-colors.css">
+   <link rel="stylesheet" href="css/dark-mode-colors.css">
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+<body onload="findCountries('https://restcountries.eu/rest/v2/all')">
+<header>
+   <a href="#" class="header-title">Where in the world? </a>
+   <div class="dark-mode-toggler">
+      <label for="dark-mode-check">
+         <i class="far fa-moon"></i> Dark Mode
+      </label>
+      <input type="checkbox" name="darkModeCheck" id="dark-mode-check">
+   </div>
+</header>
+
+<section id="search-section">
+   <div class="input-group">
+      <i class="fas fa-search"></i>
+      <input type="text" name="country" id="country" placeholder="Search for a country...">
+   </div>
+   <div class="input-group">
+      <select name="regionFilter" id="region-filter">
+         <option value="">Filter by Region</option>
+         <option value="Africa">Africa</option>
+         <option value="Americas">Americas</option>
+         <option value="Asia">Asia</option>
+         <option value="Europe">Europe</option>
+         <option value="Oceania">Oceania</option>
+      </select>
+   </div>
+</section>
+
+<main>
+   <h1 class="info"></h1>
+
+   <div class="country-detail">
+      <button type="button" id="back"><i class="fas fa-long-arrow-alt-left"></i> Back</button>
+      <img src="" alt="" class="country-flag">
+      <div class="country-info">
+         <div class="some-info main-info">
+            <h1 class="country-name"></h1>
+            <div class="native-name"></div>
+            <div class="population"></div>
+            <div class="region"></div>
+            <div class="sub-region"></div>
+            <div class="capital"></div>
+         </div>
+         <div class="some-info" secondary-info>
+            <div class="domain"></div>
+            <div class="currencies"></div>
+            <div class="languages"></div>
+         </div>
+         <div class="border-countries"></div>
+      </div>
+   </div>
+</main>
+
+<script src="js/index.js"></script>
+</body>
+</html>
