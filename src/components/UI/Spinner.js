@@ -1,3 +1,4 @@
 import classes from './Spinner.module.css'
 
-export default () => <div className={classes.spinner}></div>
+const Spinner = () => <div className={classes.spinner}></div>
+export default Spinner

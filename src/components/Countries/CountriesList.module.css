@@ -1,8 +1,8 @@
 .countries_list{
-  margin: 4rem 3rem;
+  margin: 4rem 2rem;
   display: grid;
   grid-template-columns: repeat(4, auto);
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .info{
@@ -25,6 +25,6 @@
 @media (max-width: 768px) {
   .countries_list{
     grid-template-columns: auto;
-    margin: 3rem 2rem;
+    margin: 3rem auto;
   }
 }

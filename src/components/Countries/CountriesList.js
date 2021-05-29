@@ -1,10 +1,25 @@
+import { useContext } from 'react'
+
+import { countriesContext } from '../../store/countries-context'
 import classes from './CountriesList.module.css'
+import Spinner from '../UI/Spinner'
 import CountryCard from './CountryCard/CountryCard'
 
 const CountriesList = props => {
+  const countriesCtx = useContext(countriesContext)
+  const { isLoading, currentCountries } = countriesCtx
+
+  if (isLoading) {
+    return <Spinner />
+  }
+  if (currentCountries.length === 0) {
+    return <h1 className={classes.info}>No countries found!</h1>
+  }
   return (
     <section className={classes.countries_list}>
-      <h1 className={classes.info}>No countries found!</h1>
+      {currentCountries.map((country, index) => (
+        <CountryCard country={country} key={index}/>
+      ))}
     </section>
   )
 }
