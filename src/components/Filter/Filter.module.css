@@ -1,0 +1,122 @@
+.filter_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.5rem;
+}
+
+.filter_section div {
+  position: relative;
+  background-color: var(--elements);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.3rem 0.7rem var(--shadow);
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 578px) {
+  .input_group {
+    height: 4rem;
+  }
+}
+
+
+.input {
+  width: 35rem;
+  margin-right: 1rem;
+}
+
+.filter {
+  width: 20rem;
+}
+
+.filter i,
+.input i {
+  vertical-align: bottom;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.input input {
+  background-color: var(--elements);
+  margin-left: 1.5rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.input input::placeholder,
+.input input::-webkit-input-placeholder {
+  color: var(--text);
+  opacity: 0.6;
+  font-size: 1.5rem;
+}
+
+.filter button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text);
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+}
+
+.filter ul {
+  background-color: var(--elements);
+  box-shadow: 0 0.3rem 0.7rem var(--shadow);
+  width: 100%;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  animation: slide-down 100ms ease-in;
+}
+
+.filter ul li {
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text);
+  padding: 0.6rem 2rem;
+}
+
+.filter ul li:hover {
+  background-color: var(--background);
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 578px) {
+  .filter_section {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1.5rem;
+  }
+  .input {
+    margin-bottom: 1rem;
+    width: auto;
+  }
+  .filter i {
+    margin-left: 1rem;
+  }
+}

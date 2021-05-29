@@ -1,0 +1,18 @@
+.spinner{
+  margin: 7rem auto 0;
+  width: 5rem;
+  height: 5rem;
+  border: .5rem solid var(--text);
+  border-top-color: var(--background); 
+  border-radius: 50%;
+  animation: spinner linear 800ms infinite;
+}
+
+@keyframes spinner{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
