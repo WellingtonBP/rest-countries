@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2.5rem;
+  margin-top: 2rem;
 }
 
 .filter_section div {
@@ -15,13 +15,6 @@
   display: flex;
   align-items: center;
 }
-
-@media (max-width: 578px) {
-  .input_group {
-    height: 4rem;
-  }
-}
-
 
 .input {
   width: 35rem;
@@ -110,7 +103,6 @@
   .filter_section {
     flex-direction: column;
     align-items: flex-start;
-    margin: 1.5rem;
   }
   .input {
     margin-bottom: 1rem;

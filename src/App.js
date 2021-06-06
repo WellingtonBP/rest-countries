@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/:alphacode" component={Country}/>
+        <Route path="/:country" component={Country}/>
       </Switch>
     </>
   )

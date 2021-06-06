@@ -1,38 +1,41 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
+import { countriesContext } from '../../store/countries-context'
 import classes from './Filter.module.css'
 
 const Filter = props => {
+  const countriesCtx = useContext(countriesContext)
   const [regionFilter, setRegion] = useState({
-    text: 'Filter by Region',
-    value: null,
+    value: countriesCtx.filter.regionName,
     showList: false,
   })
-  const [countryName, setCountryName] = useState(null)
-  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Asia'];
+  const [countryName, setCountryName] = useState(
+    countriesCtx.filter.countryName
+  )
+  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Asia']
 
-  useEffect(() => {
-    if (countryName !== null || regionFilter.value) {
-    }
-  }, [regionFilter.value, countryName])
+  const changeCountryNameHandler = event => {
+    setCountryName(event.target.value)
+    countriesCtx.filterCountries(regionFilter.value, event.target.value)
+  }
 
-  const changeCountryNameHandler = event => setCountryName(event.target.value)
-
-  const toggleRegionList = () => setRegion(prev => ({ ...prev, showList: !prev.showList }))
+  const toggleRegionList = () =>
+    setRegion(prev => ({ ...prev, showList: !prev.showList }))
 
   const selectRegionHandler = regionName => {
     setRegion({
-      text: regionName,
-      value: regionName.toLowerCase(),
-      showList: true,
+      value: regionName,
+      showList: false,
     })
+    countriesCtx.filterCountries(regionName, countryName)
   }
 
   return (
-    <section className={classes.filter_section}>
+    <section className={`container ${classes.filter_section}`}>
       <div className={classes.input}>
         <i className="fas fa-search"></i>
         <input
+          value={countryName}
           type="text"
           placeholder="Search for a country"
           onChange={changeCountryNameHandler}
@@ -40,16 +43,18 @@ const Filter = props => {
       </div>
       <div className={classes.filter}>
         <button id="region-filter" onClick={toggleRegionList}>
-          {regionFilter.text}{' '}
+          {regionFilter.value ? regionFilter.value : 'Filter by Region'}
           <i
             className={`fas fa-angle-${regionFilter.showList ? 'up' : 'down'}`}
           ></i>
         </button>
         {regionFilter.showList && (
           <ul aria-labelledby="region-filter">
-            <li onClick={selectRegionHandler.bind(this, 'All')}>All</li>
-            {regions.map(region => (
-              <li onClick={selectRegionHandler.bind(this, region)}>{region}</li>
+            <li onClick={selectRegionHandler.bind(this, '')}>All</li>
+            {regions.map((region, index) => (
+              <li onClick={selectRegionHandler.bind(this, region)} key={index}>
+                {region}
+              </li>
             ))}
           </ul>
         )}

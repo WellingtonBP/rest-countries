@@ -13,10 +13,10 @@ const CountriesList = props => {
     return <Spinner />
   }
   if (currentCountries.length === 0) {
-    return <h1 className={classes.info}>No countries found!</h1>
+    return <h1 className="info">No countries found!</h1>
   }
   return (
-    <section className={classes.countries_list}>
+    <section className={`container ${classes.countries_list}`}>
       {currentCountries.map((country, index) => (
         <CountryCard country={country} key={index}/>
       ))}

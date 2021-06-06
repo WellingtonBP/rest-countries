@@ -1,11 +1,14 @@
 .header {
   height: 6rem;
+  background-color: var(--elements);
+  box-shadow: 0 0.3rem 0.7rem var(--shadow);
+}
+
+.header div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3rem;
-  background-color: var(--elements);
-  box-shadow: 0 .3rem .7rem var(--shadow);
+  height: 100%;
 }
 
 .header a {
@@ -22,19 +25,16 @@
   color: var(--text);
 }
 
-.header button span{
+.header button span {
   font-size: 1.7rem;
-  margin-left: .8rem;
+  margin-left: 0.8rem;
 }
 
-@media (max-width: 576px){
-  .header{
-    padding: 0 2rem;
-  }
-  .header a{
+@media (max-width: 576px) {
+  .header a {
     font-size: 1.7rem;
   }
-  .header button span{
+  .header button span {
     font-size: 1.4rem;
   }
 }
