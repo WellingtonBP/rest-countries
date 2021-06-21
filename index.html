@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Search Countries</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+   <a href="#" class="header-title">Where in the world? </a>
+   <div class="dark-mode-toggler">
+      <label for="dark-mode-check">
+         <i class="far fa-moon"></i> Dark Mode
+      </label>
+      <input type="checkbox" name="darkModeCheck" id="dark-mode-check">
+   </div>
+</header>
+
+<section id="search-section">
+   <div class="input-group">
+      <i class="fas fa-search"></i>
+      <input type="text" name="country" id="country-input" placeholder="Search for a country...">
+   </div>
+   <div class="input-group">
+      <select name="regionFilter" id="region-select">
+         <option value="">Filter by Region</option>
+         <option value="Africa">Africa</option>
+         <option value="Americas">Americas</option>
+         <option value="Asia">Asia</option>
+         <option value="Europe">Europe</option>
+         <option value="Oceania">Oceania</option>
+      </select>
+   </div>
+</section>
+
+<main>
+   <h1 class="info"></h1>
+
+   <script type="x-tmpl-mustache" id="country-detail-template">
+      <div class="country-detail">
+         <button type="button" id="back"><i class="fas fa-long-arrow-alt-left"></i> Back</button>
+         <img src="{{ flag }}" alt="" class="country-flag">
+         <div class="country-info">
+            <div class="some-info main-info">
+               <h1 class="country-name">{{ name }}</h1>
+               <div class="native-name"><strong>Native Name: </strong>{{ nativeName }}</div>
+               <div class="population"><strong>Population: </strong> {{ population }}</div>
+               <div class="region"><strong>Region: </strong> {{ region }}</div>
+               <div class="sub-region"><strong>Sub Region: </strong> {{ subregion }}</div>
+               <div class="capital"><strong>Capital: </strong> {{ capital }}</div>
+            </div>
+            <div class="some-info" secondary-info>
+               <div class="domain"><strong>Top Level Domain: </strong> {{ domain }}</div>
+               <div class="currencies"><strong>Currencies: </strong> {{ currencies }}</div>
+               <div class="languages"><strong>Languages: </strong> {{ languages }}</div>
+            </div>
+            <div class="border-countries">
+               <h2>Border Countries: </h2>
+            </div>
+         </div>
+      </div>
+   </script>
+
+   <script type="x-tmpl-mustache" id="card-template">
+      <div class="card">
+         <div class="card-header">
+            <img src="{{ flag }}" alt="{{ name }}" class="country-flag">
+         </div>
+         <div class="card-body">
+            <h1 class="country-name">{{ name }}</h1>
+            <div class="some-info">
+               <div class="population">
+                  <strong>Population: </strong>{{ population }}</div>
+                  <div class="region"><strong>Region: </strong>{{ region }}</div>
+                  <div class="capital"><strong>Capital: </strong>{{ capital }}</div>
+               </div>
+            </div>
+         </div>
+   </script>
+
+   <script type="x-tmpl-mustache" id="pagination-template">
+      <section id="pagination">
+         <a data-to="previous">&lt;</a>
+         <a data-to="first">1</a>
+         <a data-to="current">current page: {{ currentPage }}</a>
+         <a data-to="last">{{ lastPage }}</a>
+         <a data-to="next">&gt;</a>
+      </section>
+   </script>
+
+</main>
+
+<script>
+   document.getElementById('dark-mode-check').addEventListener('change', ({target: checkbox}) => {
+      const icon = document.querySelector('.dark-mode-toggler i');
+      if(checkbox.checked){
+         document.body.classList.add('dark-mode');
+         icon.classList.replace("far", "fas");
+      }else{
+         document.body.classList.remove('dark-mode');
+         icon.classList.replace('fas', 'far');
+      }
+   });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js" defer></script>
+<script src="js/index.js" defer></script>
+</body>
+</html>
