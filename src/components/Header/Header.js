@@ -18,7 +18,7 @@ const Header = () => {
       document.documentElement.style.setProperty('--background', '#fafafa')
       document.documentElement.style.setProperty('--elements', '#ffffff')
       document.documentElement.style.setProperty('--text', '#111517e0')
-      localStorage.setItem('darkMode', '')
+      localStorage.removeItem('darkMode')
     }
   }, [isDark])
 

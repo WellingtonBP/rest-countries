@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import classes from './CountryDetails.module.css'
 
 const CountryDetails = props => {
+  const history = useHistory()
   const {
     flag,
     name,
@@ -19,9 +20,9 @@ const CountryDetails = props => {
 
   return (
     <article className={`${classes.country_details} container`}>
-      <Link to="/" className={classes.back}>
+      <button className={classes.back} onClick={() => history.goBack()}>
         <i className="fas fa-long-arrow-alt-left"></i>Back
-      </Link>
+      </button>
       <img src={flag} alt={name} />
       <section>
         <h1>{name}</h1>
@@ -76,7 +77,9 @@ const CountryDetails = props => {
         <section className={classes.borders_countries}>
           <h1>Border Countries: </h1>
           {borders.map((border, index) => (
-            <Link to={`/${border}`} key={index}>{border}</Link>
+            <Link to={`/${border}`} key={index}>
+              {border}
+            </Link>
           ))}
         </section>
       </section>

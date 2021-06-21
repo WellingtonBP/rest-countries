@@ -8,6 +8,8 @@
 }
 
 .back{
+  border: none;
+  cursor: pointer;
   grid-area: btn;
   width: 15rem;
   height: 4.5rem;
