@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className="container">
-        <Link to="/">Where in the World?</Link>
+        <Link to="/rest-countries">Where in the World?</Link>
         <button onClick={toggleThemeHandler} type="button">
           <i className={`fa-moon ${isDark ? 'fas' : 'far'}`}></i>
           <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>

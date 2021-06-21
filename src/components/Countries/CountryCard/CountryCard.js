@@ -6,7 +6,7 @@ const CountryCard = props => {
   const {name, flag, population, region, capital, alpha3Code} = props.country;
 
   return (
-    <Link className={classes.country} to={`/${alpha3Code}`}>
+    <Link className={classes.country} to={`/rest-countries/${alpha3Code}`}>
       <article>
         <img src={flag} alt={name} />
         <section>

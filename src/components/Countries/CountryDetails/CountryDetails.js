@@ -77,7 +77,7 @@ const CountryDetails = props => {
         <section className={classes.borders_countries}>
           <h1>Border Countries: </h1>
           {borders.map((border, index) => (
-            <Link to={`/${border}`} key={index}>
+            <Link to={`/rest-countries/${border}`} key={index}>
               {border}
             </Link>
           ))}

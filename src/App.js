@@ -9,8 +9,8 @@ function App() {
     <>
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/:country" component={Country}/>
+        <Route path="/rest-countries" exact component={Home} />
+        <Route path="/rest-countries/:country" component={Country}/>
       </Switch>
     </>
   )
